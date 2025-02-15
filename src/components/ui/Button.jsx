@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-export default function ButtonLink({ children, link, onClick }) {
-  if (link) {
+export default function Button(props) {
+  if (props.link) {
     return (
-      <Link href={link}>
+      <Link href={props.link}>
         <button className="w-[100%] text-[20px] bg-gray-800 text-white rounded-md p-2 capitalize disabled:bg-gray-400">
-          {children}
+          {props.children}
         </button>
       </Link>
     );
@@ -13,10 +13,11 @@ export default function ButtonLink({ children, link, onClick }) {
   return (
     <>
       <button
-        onClick={onClick}
+      type={props.type}
+        onClick={props.onClick}
         className="w-[100%] text-[20px] bg-gray-800 text-white rounded-md p-2 capitalize disabled:bg-gray-400"
       >
-        {children}
+        {props.children}
       </button>
     </>
   );
